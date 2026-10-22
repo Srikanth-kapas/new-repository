@@ -1,29 +1,86 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>API Fetch Project</title>
-  <style>
+<html lang="en">    
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+    <link rel="stylesheet" href="style.css"><style>
     body {
-      font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
     }
-    .card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
+    .header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-  </style>
-</head>
-<body>
-
-  <h2>API Data Fetch Project</h2>
-
-  <button onclick="getData()">Get Data</button>
-  <button id="clearbtn"onclick="clearData()">Clear</button>
-
-  <div id="output"></div>
-
-  <script src="./index.js"></script>
-</body>
-</html>
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .user-icon {
+        font-size: 1.2rem;
+    }
+    .sidebar {
+        background-color: #f4f4f4;
+        width: 250px;
+        height: calc(100vh - 60px);
+        position: fixed;
+        top: 60px;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;margin: 0;
+}
+    .sidebar-menu li {
+        padding: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+    .main-content {
+        margin-left: 250px;
+        padding: 1rem;
+        transition: margin-left 0.3s ease;
+    }
+    .main-content.expanded {
+        margin-left: 0;
+    }
+    @media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+        .sidebar.collapsed {
+            transform: translateX(0);
+        }
+        .main-content {
+            margin-left: 0;
+        }
+    }   <body>
+    <div class="header">
+        <div class="logo">Dashboard</div>
+        <div class="user-icon">👤</div>
+    </div>
+    <button class="sidebar-toggle">☰</button>
+    <div class="sidebar">
+        <ul class="menu">
+            <li>Dashboard</li>
+            <li>Users</li>
+            <li>Reports</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is the main content area. It adjusts based on the sidebar visibility.</p></div>
+    </body>
+</html> 
